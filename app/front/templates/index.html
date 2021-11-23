@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{%block content %}
+{{ super() }}
+<form action="/" method="post">
+    <p><label>Бренд: </label>
+        <select name="Бренд">
+        {% for brand in brands -%}
+            <option>{{brand}}</option>
+        {% endfor -%}
+    </select></p>
+    <p><label>Модель: </label>
+        <select name="Модель">
+        {% for car_model in car_models -%}
+            <option>{{brand}}</option>
+        {% endfor -%}
+    </select></p>
+
+    <p><label>Год: </label> <input type="text" name="brand" value="" required/>
+    <p><label>Коробка передач: </label> <input type="text" name="brand" value="" required/>
+    <p><label>Пробег: </label> <input type="text" name="brand" value="" required/>
+    <p><label>Тип топлива: </label> <input type="text" name="brand" value="" required/>
+    <p><label>Налог: </label> <input type="text" name="brand" value="" required/>
+    <p><label>Расход: </label> <input type="text" name="brand" value="" required/>
+    <p><label>Объем двигателя: </label> <input type="text" name="brand" value="" required/>
+    <p><input type="submit" value="Отправить" />
+</form>
+{% endblock %}
+
