@@ -1,0 +1,40 @@
+html, body {
+    font-family: 'Arial';
+    margin: 20px;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #FFFAFA;
+}
+
+h1 {
+    margin-left: 10px;
+    background-color: #D2B48C;
+}
+
+.input-form {
+    margin-top: 30px;
+    background-color: #B0E0E6;
+}
+
+.input-form label {
+    display: inline-block;
+    min-width: 150px;
+    margin-left: 30px;
+}
+
+.input-form input[type=submit] {
+    font-size: 16px;
+    background-color: #D2B48C;
+    margin-left: 30px;
+}
+
+.flash {padding: 10px;}
+.flash.success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}

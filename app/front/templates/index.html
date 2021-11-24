@@ -2,28 +2,36 @@
 
 {%block content %}
 {{ super() }}
-<form action="/" method="post">
-    <p><label>Бренд: </label>
-        <select name="Бренд">
-        {% for brand in brands -%}
-            <option>{{brand}}</option>
-        {% endfor -%}
-    </select></p>
+{% for cat, msg in get_flashed_messages(True) -%}
+    <div class="flash {{cat}}">{{msg}}</div>
+{% endfor -%}
+<form action="/" method="post" class="input-form">
     <p><label>Модель: </label>
         <select name="Модель">
-        {% for car_model in car_models -%}
-            <option>{{brand}}</option>
-        {% endfor -%}
-    </select></p>
-
-    <p><label>Год: </label> <input type="text" name="brand" value="" required/>
-    <p><label>Коробка передач: </label> <input type="text" name="brand" value="" required/>
-    <p><label>Пробег: </label> <input type="text" name="brand" value="" required/>
-    <p><label>Тип топлива: </label> <input type="text" name="brand" value="" required/>
-    <p><label>Налог: </label> <input type="text" name="brand" value="" required/>
-    <p><label>Расход: </label> <input type="text" name="brand" value="" required/>
-    <p><label>Объем двигателя: </label> <input type="text" name="brand" value="" required/>
-    <p><input type="submit" value="Отправить" />
+            {% for brand, brand_models in car_models.items() -%}
+            {% for model in brand_models -%}
+            <option>{{brand}} - {{model}}</option>
+            {% endfor -%}
+            {% endfor -%}
+        </select></p>
+    <p><label>Год: </label> <input type="text" name="year" value="" placeholder="от 1997 до 2020" required/>
+    <p><label>Коробка передач: </label>
+        <select name="Коробка передач">
+            {% for tr in transmissions -%}
+            <option>{{tr}}</option>
+            {% endfor -%}
+        </select></p>
+    <p><label>Пробег: </label> <input type="text" name="mileage" value="" placeholder="от 0 до 260000" required/>
+    <p><label>Тип топлива: </label>
+        <select name="Тип топлива">
+            {% for f in fuel_types -%}
+            <option>{{f}}</option>
+            {% endfor -%}
+        </select></p>
+    <p><label>Налог: </label> <input type="text" name="tax" value="" placeholder="от 0 до 600" required/>
+    <p><label>Расход: </label> <input type="text" name="mpg" value="" placeholder="от 2 до 480" required/>
+    <p><label>Объем двигателя: </label> <input type="text" name="engineSize" value="" placeholder="от 0 до 6.6" required/>
+    <p><input type="submit" value="Оценить"/>
 </form>
 {% endblock %}
 

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%block content %}
+{{ super() }}
+
+<h2>Результат:</h2>
+
+{% if not response['error'] %}
+<div class="answer_block">
+    <div class="answer">
+        <h2> Цена автомобиля с заданными параметрами: {{response}} </h2>
+    </div>
+    <div class="go_back">
+        <a href="{{ url_for('index') }}" class="btn-back">Назад</a>
+    </div>
+</div>
+{% else %}
+<div class="card">
+    <div class="card-header text-center">
+        <b>Error</b>
+    </div>
+    <div class="card-body">
+        {% if response['error'] == 'ConnectionError' or response['error'] == 'URLError' %}
+        <p class="card-text text-center">Нет связи с ML сервисом</p>
+        {% else %}
+        <p class="card-text text-center">Ошибка ML сервиса</p>
+        {% endif %}
+        <div class="go_back">
+            <a href="{{ url_for('index') }}" class="btn-back">Назад</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
