@@ -27,7 +27,7 @@ def get_prediction(model, brand, year, transmission, mileage, fuel_type, tax, mp
         "engineSize": engineSize,
     }
 
-    myurl = "http://192.168.0.106:8180/predict"
+    myurl = "http://0.0.0.0:8180/predict"
     req = urllib.request.Request(myurl)
     req.add_header('Content-Type', 'application/json; charset=utf-8')
     json_data = json.dumps(body)
