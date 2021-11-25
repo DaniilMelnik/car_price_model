@@ -19,7 +19,7 @@ def load_model(model_path):
         return model
 
 
-model_path = "./models/model_pipeline.dill"
+model_path = os.path.join(os.path.abspath(os.curdir),'models', 'model_pipeline.dill')
 model = load_model(model_path)
 
 
