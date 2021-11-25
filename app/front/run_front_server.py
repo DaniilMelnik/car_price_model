@@ -37,7 +37,7 @@ def get_prediction(model, brand, year, transmission, mileage, fuel_type, tax, mp
     return json.loads(response.read())['predictions']
 
 
-train_data = pd.read_csv(os.path.join(os.path.abspath(os.curdir),'data', 'X_train.csv'))
+train_data = pd.read_csv(os.path.join(os.path.abspath(os.curdir), 'front', 'data', 'X_train.csv'))
 
 page_data = {
     'menu': ['Главная страница', 'О сайте']
